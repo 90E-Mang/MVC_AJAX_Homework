@@ -1,0 +1,80 @@
+﻿<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="~/Scripts/Dept.js"></script>
+<div class="row">
+    <div class="container">
+        <h2>Dept</h2>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Add New Dept</button><br /><br />
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        DeptNo
+                    </th>
+                    <th>
+                        DeptName
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                @*
+                    @{
+                        foreach (var dept in deptList)
+                        {
+                            <tr>
+                                <td>@dept.DeptNo</td>
+                                <td>@dept.Dname</td>
+                                <td>@dept.Loc</td>
+                                <td><a href="#" onclick="return getDeptbyDeptno(@dept.DeptNo)">Edit</a> | <a href="#" onclick="Delete(@dept.DeptNo)">Delete</a></td>
+                            </tr>
+                        }
+                    }
+                *@
+            </tbody>
+        </table>
+        <input type="text" id="txtdeptno" placeholder="부서번호" />
+        <input type="button" id="btndeptno" onclick="searchByDeptno()" value="검색" />
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Add Dept</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="DeptNo">DeptNo</label>
+                            <input type="text" class="form-control" id="DeptNo" placeholder="DeptNo" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Dname">DeptName</label>
+                            <input type="text" class="form-control" id="Dname" placeholder="Dname" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Loc">Location</label>
+                            <input type="text" class="form-control" id="Loc" placeholder="Loc" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnAdd" onclick="Add()">Add</button>
+                    <button type="button" class="btn btn-primary" id="btnUpdate" onclick="Update()" style="display:none">Update</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
